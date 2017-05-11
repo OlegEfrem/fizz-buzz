@@ -10,6 +10,7 @@ object FizzBuzzService {
   val fizz = "fizz"
   val buzz = "buzz"
   val fizzbuzz = "fizzbuzz"
+  val lucky = "lucky"
 
   def apply(): FizzBuzzService = new DefaultFizzBuzzService
 
