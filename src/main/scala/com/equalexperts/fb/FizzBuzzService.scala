@@ -20,7 +20,7 @@ object FizzBuzzService {
 
 }
 
-class DefaultFizzBuzzService extends FizzBuzzService {
+private[fb] class DefaultFizzBuzzService extends FizzBuzzService {
 
   import FizzBuzzService._
 
@@ -38,5 +38,12 @@ class DefaultFizzBuzzService extends FizzBuzzService {
     }
   }
 
-  override def fizzBuzzWithReport(numbers: Range) = ???
+  override def fizzBuzzWithReport(numbers: Range): String = {
+    val result = fizzBuzz(numbers)
+    val resultParts = result.split(" ").toSeq
+    val (nums, nonNums) = resultParts.partition(_.forall(Character.isDigit))
+    val nonNumsReport = nonNums.groupBy(k => k).map { case (k, v) => s"$k: ${v.size}" }
+    val allReport = nonNumsReport.mkString(" ") + " integer: " + nums.size
+    s"$result $allReport"
+  }
 }
