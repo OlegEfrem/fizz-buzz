@@ -1,8 +1,12 @@
 package com.equalexperts.fb
 
 trait FizzBuzzService {
+  type FizzBuzzResult = String
+  type FizzBuzzResultWithReport = String
 
-  def fizzBuzz(numbers: Range): String
+  def fizzBuzz(numbers: Range): FizzBuzzResult
+
+  def fizzBuzzWithReport(numbers: Range): FizzBuzzResultWithReport
 
 }
 
@@ -34,4 +38,5 @@ class DefaultFizzBuzzService extends FizzBuzzService {
     }
   }
 
+  override def fizzBuzzWithReport(numbers: Range) = ???
 }
