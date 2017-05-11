@@ -22,7 +22,7 @@ compileScalastyle := org.scalastyle.sbt.ScalastylePlugin.scalastyle.in(Compile).
 (compile in Compile) <<= (compile in Compile) dependsOn compileScalastyle
 
 // code coverage configuration
-coverageEnabled := false
+coverageEnabled := true
 
 coverageHighlighting := true
 
@@ -30,4 +30,4 @@ coverageMinimum := 100
 
 coverageFailOnMinimum := true
 
-parallelExecution in Test := false
+parallelExecution in Test := true
