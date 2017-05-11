@@ -26,6 +26,7 @@ class DefaultFizzBuzzService extends FizzBuzzService {
 
   private def fizzBuzzConvert(num: Int): String = {
     num match {
+      case n if n.toString.contains("3") => lucky
       case n if n % 15 == 0 => fizzbuzz
       case n if n % 3 == 0 => fizz
       case n if n % 5 == 0 => buzz
