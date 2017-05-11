@@ -7,7 +7,29 @@ trait FizzBuzzService {
 }
 
 object FizzBuzzService {
-  def apply(): FizzBuzzService = new FizzBuzzService {
-    override def fizzBuzz(numbers: Range) = ""
+  val fizz = "fizz"
+  val buzz = "buzz"
+  val fizzbuzz = "fizzbuzz"
+
+  def apply(): FizzBuzzService = new DefaultFizzBuzzService
+
+}
+
+class DefaultFizzBuzzService extends FizzBuzzService {
+
+  import FizzBuzzService._
+
+  override def fizzBuzz(numbers: Range) = {
+    numbers.map(fizzBuzzConvert).mkString(" ")
   }
+
+  private def fizzBuzzConvert(num: Int): String = {
+    num match {
+      case n if n % 15 == 0 => fizzbuzz
+      case n if n % 3 == 0 => fizz
+      case n if n % 5 == 0 => buzz
+      case _ => num.toString
+    }
+  }
+
 }
